@@ -17,7 +17,6 @@ interface FormularioProps {
 
 const FormularioSolicitud: React.FC<FormularioProps> = ({ cestaItems, onBackToCatalogue, onSubmit }) => {
   
-  // Acceso seguro a la variable de entorno para evitar cuellos de botella en el build
   const formId = (import.meta as any).env.VITE_FORMSPREE_ID;
   const [state, handleSubmitFormspree] = useForm(formId || "");
   
@@ -26,7 +25,6 @@ const FormularioSolicitud: React.FC<FormularioProps> = ({ cestaItems, onBackToCa
   useEffect(() => {
     if (state.succeeded) {
       setMostrarExitoPersistente(true);
-      // Hacemos scroll arriba para que el usuario vea el mensaje de éxito inmediatamente
       window.scrollTo({ top: 0, behavior: "smooth" });
 
       const timer = setTimeout(() => {
@@ -104,7 +102,6 @@ const FormularioSolicitud: React.FC<FormularioProps> = ({ cestaItems, onBackToCa
           <form onSubmit={handleSubmitFormspree} className="p-8 space-y-6 bg-white border border-gray-200 shadow-md">
             <h3 className="mb-4 text-2xl font-bold text-gray-900 uppercase">Datos de Contacto</h3>
             
-            {/* Campos ocultos para enviar la información del carrito */}
             <textarea 
               name="lista_articulos" 
               value={resumenCestaTexto} 
@@ -127,7 +124,7 @@ const FormularioSolicitud: React.FC<FormularioProps> = ({ cestaItems, onBackToCa
                   <input 
                     id="email"
                     type="email" 
-                    name="email" // Usar "email" ayuda a Formspree a procesar mejor el envío
+                    name="email" 
                     placeholder="Correo Electrónico" 
                     required 
                     className="w-full p-3 text-lg transition bg-transparent border-b border-gray-300 outline-none focus:border-black"

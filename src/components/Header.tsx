@@ -1,9 +1,5 @@
 import React from 'react';
 
-/**
- * Icono de Armario (Closet)
- * Diseñado a medida para representar el archivo de vestuario.
- */
 const ClosetIcon = ({ size = 24, className = "" }) => (
   <svg 
     width={size} 
@@ -16,11 +12,8 @@ const ClosetIcon = ({ size = 24, className = "" }) => (
     strokeLinejoin="round" 
     className={className}
   >
-    {/* Contorno del armario */}
     <rect x="4" y="2" width="16" height="20" rx="1" />
-    {/* Línea central (puertas) */}
     <line x1="12" y1="2" x2="12" y2="22" />
-    {/* Tiradores / Pomos */}
     <circle cx="10" cy="12" r="0.5" fill="currentColor" />
     <circle cx="14" cy="12" r="0.5" fill="currentColor" />
   </svg>
@@ -40,7 +33,6 @@ const Header: React.FC<HeaderProps> = ({ cestaCount, onOpenCesta, onGoToCatalogu
     <header className="fixed top-0 left-0 z-40 w-full py-4 bg-white border-b border-gray-200 shadow-md">
       <div className="flex items-center justify-between px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
      
-        {/* Logo de Sambrona */}
         <a 
           href={externalWebUrl} 
           target="_blank" 
@@ -67,13 +59,11 @@ const Header: React.FC<HeaderProps> = ({ cestaCount, onOpenCesta, onGoToCatalogu
                 </li>
             </ul>
 
-            {/* Acceso al Armario (Cesta) */}
             <div 
                 className="relative p-2 transition duration-150 rounded-full cursor-pointer hover:bg-gray-100 group"
                 onClick={onOpenCesta}
                 aria-label="Ver armario"
             >
-                {/* Sustitución del SVG original por el ClosetIcon */}
                 <ClosetIcon 
                   size={24} 
                   className="text-gray-900 transition-colors group-hover:text-indigo-600" 
@@ -93,7 +83,6 @@ const Header: React.FC<HeaderProps> = ({ cestaCount, onOpenCesta, onGoToCatalogu
 
 export default Header;
 
-// Exportación para visualización previa
 export const App = () => (
   <div className="min-h-screen pt-20 bg-gray-50">
     <Header 

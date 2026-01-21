@@ -51,7 +51,6 @@ function getInitialState<T>(key: string, defaultValue: T): T {
 }
 
 function App() {
-  // --- Estados de Persistencia ---
   const [cestaItems, setCestaItems] = useState<string[]>(
     () => getInitialState(CESTA_STORAGE_KEY, [])
   );
@@ -60,12 +59,10 @@ function App() {
     () => getInitialState(FILTERS_STORAGE_KEY, defaultFilters)
   );
 
-  // --- Estados de UI ---
   const [isCestaOpen, setIsCestaOpen] = useState(false);
   const [currentView, setCurrentView] = useState<AppView>("catalogue");
   const [selectedProduct, setSelectedProduct] = useState<ItemPrenda | null>(null);
 
-  // --- Efectos de Persistencia ---
   useEffect(() => {
     localStorage.setItem(CESTA_STORAGE_KEY, JSON.stringify(cestaItems));
   }, [cestaItems]);
@@ -74,7 +71,6 @@ function App() {
     localStorage.setItem(FILTERS_STORAGE_KEY, JSON.stringify(activeFilters));
   }, [activeFilters]);
 
-  // --- LÓGICA DE FILTRADO DINÁMICO ---
   const dynamicFilterOptions = useMemo(() => {
     const keys = (Object.keys(defaultFilters) as (keyof Filters)[]).filter(k => k !== 'busqueda') as FilterCheckboxKeys[];
     const options: any = {};
@@ -178,7 +174,6 @@ function App() {
   const handleViewDetails = (producto: ItemPrenda) => setSelectedProduct(producto);
   const handleCloseImageModal = () => setSelectedProduct(null);
 
-  // --- Vistas ---
   const CatalogueView = (
     <>
       <section className="relative w-full h-screen overflow-hidden bg-black">

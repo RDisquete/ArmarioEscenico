@@ -8,13 +8,13 @@ interface Filters {
     genero: string[];
     claseSocial: string[];
     color: string[];
-    busqueda: string; // Nuevo campo
+    busqueda: string; 
 }
 
 interface FilterDropdownProps {
   filterName: keyof Filters;
-  options?: string[]; // Ahora es opcional porque la búsqueda no usa opciones
-  activeValues: any; // Cambiado a any para aceptar string[] o string
+  options?: string[]; 
+  activeValues: any;
   onFilterChange: (filterName: keyof Filters, value: string) => void;
 }
 
@@ -33,10 +33,9 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
     genero: 'Género',
     claseSocial: 'Clase Social',
     color: 'Color',
-    busqueda: 'Buscar palabra clave o ID', // Etiqueta nueva
+    busqueda: 'Buscar palabra clave o ID',
   };
 
-  // Renderizado especial para el buscador de palabras clave e IDs
   if (filterName === 'busqueda') {
     return (
       <div className="relative pt-4 mt-4 border-t border-gray-100">
@@ -64,7 +63,6 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
     );
   }
 
-  // Renderizado normal para los select múltiples
   return (
     <div className="relative">
       <label className="block mb-1 text-xs font-medium text-gray-700 uppercase">

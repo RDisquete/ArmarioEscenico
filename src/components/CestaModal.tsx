@@ -1,7 +1,5 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import { ItemPrenda } from '../data/productos';
-
-// 🟢 Icono de Armario Detallado (Sustituye a la cesta)
 const ClosetIcon = ({ size = 20, className = "" }: { size?: number, className?: string }) => (
   <svg 
     width={size} 
@@ -14,14 +12,10 @@ const ClosetIcon = ({ size = 20, className = "" }: { size?: number, className?: 
     strokeLinejoin="round" 
     className={className}
   >
-    {/* Marco exterior del armario */}
     <path d="M5 3h14a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" />
-    {/* Línea divisoria central (Puertas) */}
     <path d="M12 3v18" />
-    {/* Tiradores/Pomos */}
     <path d="M9 11v2" />
     <path d="M15 11v2" />
-    {/* Patas del armario */}
     <path d="M7 21v1" />
     <path d="M17 21v1" />
   </svg>
@@ -68,7 +62,6 @@ const CestaModal: React.FC<CestaModalProps> = ({ cestaItems, isOpen, onClose, on
         ref={modalContentRef} 
         className="flex flex-col w-full h-full max-w-md overflow-y-auto bg-white shadow-2xl"
       >
-        {/* Encabezado */}
         <div className="sticky top-0 z-10 p-6 bg-white border-b border-gray-200">
           <div className="flex items-start justify-between">
             <div>
@@ -85,7 +78,6 @@ const CestaModal: React.FC<CestaModalProps> = ({ cestaItems, isOpen, onClose, on
           </div>
         </div>
 
-        {/* Lista de Artículos */}
         <div className="flex-grow p-6 space-y-4">
           {cestaItems.length === 0 ? (
             <div className="flex flex-col items-center py-20 text-center">
@@ -119,7 +111,6 @@ const CestaModal: React.FC<CestaModalProps> = ({ cestaItems, isOpen, onClose, on
           )}
         </div>
 
-        {/* Acciones */}
         <div className="sticky bottom-0 p-6 bg-white border-t border-gray-100 shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
           <div className="flex flex-col gap-3">
             <button 

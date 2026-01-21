@@ -1,17 +1,13 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 
-/**
- * Componente Footer minimalista y simétrico.
- * Estructura: [Logo + Nombre] --- [Logo Institucional Central] --- [Botón Web]
- */
+
 const Footer = () => {
   return (
     <footer className="py-12 mt-20 bg-white border-t border-gray-100">
       <div className="px-8 mx-auto max-w-7xl">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           
-          {/* BLOQUE IZQUIERDO: Identidad y Logo Sambrona */}
           <div className="flex items-center flex-1 gap-5">
             <img 
               src="/TRES EN LA RAYA.png" 
@@ -25,7 +21,6 @@ const Footer = () => {
             </span>
           </div>
 
-          {/* BLOQUE CENTRAL: Logo Diputación (Protagonista) */}
           <div className="flex justify-center flex-1">
             <img 
               src="/Diputacion.png" 
@@ -37,7 +32,6 @@ const Footer = () => {
             />
           </div>
 
-          {/* BLOQUE DERECHO: Botón Web Principal */}
           <div className="flex justify-end flex-1">
             <a 
               href="https://www.asociacionsambrona.org" 
